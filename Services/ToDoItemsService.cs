@@ -45,7 +45,7 @@ namespace ToDoList.Api.Services
                 Description = toDoItemDto.Description,
                 Favorite = toDoItemDto.Favorite,
                 Done = toDoItemDto.Done,
-                CreatedTime = toDoItemDto.CreatedTime
+                CreatedTimeDate = toDoItemDto.CreatedTime
             };
 
             await _ToDoItemsCollection.InsertOneAsync(toDoItem);
@@ -67,7 +67,7 @@ namespace ToDoList.Api.Services
                     Description = item.Description,
                     Favorite = item.Favorite,
                     Done = item.Done,
-                    CreatedTime = item.CreatedTime
+                    CreatedTime = item.CreatedTimeDate
                 };
                 dtoList.Add(itemDto);
             }
@@ -88,7 +88,7 @@ namespace ToDoList.Api.Services
                 Description = item.Description,
                 Favorite = item.Favorite,
                 Done = item.Done,
-                CreatedTime = item.CreatedTime
+                CreatedTime = item.CreatedTimeDate
             };
 
             return itemDto;
@@ -116,7 +116,7 @@ namespace ToDoList.Api.Services
                     Description = updatedToDoItemDto.Description,
                     Favorite = updatedToDoItemDto.Favorite,
                     Done = updatedToDoItemDto.Done,
-                    CreatedTime = updatedToDoItemDto.CreatedTime
+                    CreatedTimeDate = updatedToDoItemDto.CreatedTime
                 };
                 var result = await _ToDoItemsCollection.ReplaceOneAsync(x => x.Id == id, updatedToDoItem);
             }

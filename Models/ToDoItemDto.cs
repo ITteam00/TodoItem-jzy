@@ -10,6 +10,6 @@ namespace ToDoList.Api.Models
         public required string Description { get; set; }
         public bool Done { get; set; } = false;
         public bool Favorite { get; set; } = false;
-        public DateTimeOffset CreatedTime { get; set; } = DateTimeOffset.UtcNow;
+        public DateTime CreatedTime { get; set; } = DateTime.UtcNow;
     }
 }
