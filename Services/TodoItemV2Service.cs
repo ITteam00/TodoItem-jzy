@@ -35,16 +35,6 @@ namespace ToDoList.Api.Services
             return await _todosRepository.EditItem(existingItem);
         }
 
-        public async Task<ToDoItemV2Obj> GetToDoItemById(string id)
-        {
-            return await _todosRepository.FindById(id);
-        }
-
-        public async Task<List<ToDoItemV2Obj>> GetAllToDoItemsInOneDay(DateTime date)
-        {
-            return await _todosRepository.FindAllTodoItemsInOneDay(date);
-        }
-
 
     }
 }

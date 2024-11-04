@@ -5,13 +5,13 @@
 //namespace ToDoList.Api.Controllers;
 
 //[ApiController]
-//[Route("api/v1/[controller]")]
+//[Route("api/v2/[controller]")]
 //public class ToDoItemsV2Controller : ControllerBase
 //{
 //    private readonly ILogger<ToDoItemsV2Controller> _logger;
 //    private readonly IToDoItemsService _toDoItemsService;
 
-//    public ToDoItemsV2Controller(ILogger<ToDoItemsV2Controller> logger, IToDoItemsService toDoItemsService)
+//    public ToDoItemsV2Controller(ILogger<ToDoItemsV2Controller> logger, IToDoItemsV2Service toDoItemsService)
 //    {
 //        _logger = logger;
 //        _toDoItemsService = toDoItemsService;
@@ -25,7 +25,8 @@
 //    }
 
 //    [HttpGet("{id}")]
-//    public async Task<ActionResult<ToDoItemDto>> Get(string id) { 
+//    public async Task<ActionResult<ToDoItemDto>> Get(string id)
+//    {
 //        var result = await _toDoItemsService.GetAsync(id);
 //        if (result is null)
 //        {
@@ -39,13 +40,14 @@
 //    [HttpPost()]
 //    public async Task<ActionResult<ToDoItemDto>> Post(ToDoItemCreateRequest createRequest)
 //    {
-//        var toDoItemDto = new ToDoItemDto { 
+//        var toDoItemDto = new ToDoItemDto
+//        {
 //            Description = createRequest.Description,
 //            Id = Guid.NewGuid().ToString(),
 //            Favorite = createRequest.Favorite,
 //            Done = createRequest.Done,
 //            CreatedTime = DateTimeOffset.Now
-            
+
 //        };
 //        await _toDoItemsService.CreateAsync(toDoItemDto);
 
@@ -54,14 +56,14 @@
 //    }
 
 //    [HttpPut("{id}")]
-//    public async Task<ActionResult<ToDoItemDto>> Put(string id, [FromBody]ToDoItemDto toDoItemDto)
+//    public async Task<ActionResult<ToDoItemDto>> Put(string id, [FromBody] ToDoItemDto toDoItemDto)
 //    {
-//        if (id!=toDoItemDto.Id)
+//        if (id != toDoItemDto.Id)
 //        {
 //            return BadRequest("ToDo Item ID in url must be equal to request body");
 //        }
 //        bool isCreate = false;
-//        var existingItem = await _toDoItemsService.GetAsync(id); 
+//        var existingItem = await _toDoItemsService.GetAsync(id);
 //        if (existingItem is null)
 //        {
 //            isCreate = true;
@@ -81,7 +83,7 @@
 //    public async Task<ActionResult> Delete(string id)
 //    {
 //        var found = await _toDoItemsService.RemoveAsync(id);
-//        return found?NoContent():NotFound();
+//        return found ? NoContent() : NotFound();
 
 //    }
 //}
