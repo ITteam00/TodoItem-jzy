@@ -77,7 +77,8 @@ namespace ToDoList.Api.Services
 
         public async Task<ToDoItemDto?> GetAsync(string id)
         {
-            if (_ToDoItemsCollection == null) {
+            if (_ToDoItemsCollection == null)
+            {
                 return null;
             }
             ToDoItem? item = await _ToDoItemsCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
