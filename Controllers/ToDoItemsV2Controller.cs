@@ -62,9 +62,10 @@ public class ToDoItemsV2Controller : ControllerBase
     [HttpPut("{id}")]
     public async Task<ActionResult<ToDoItemV2Obj>> Put(string id, [FromBody] ToDoItemV2Obj toDoItemDto)
     {
+        toDoItemDto.Id = id;
         if (id != toDoItemDto.Id)
         {
-            return BadRequest("ToDo Item ID in URL must be equal to request body");
+            return BadRequest("ToDo Item ID in URL must be equal to request body!!!");
         }
 
         var updatedItem = await _toDoItemsService.EditToDoItem(toDoItemDto);

@@ -15,9 +15,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IToDoItemsService, ToDoItemsService>();
 builder.Services.AddSingleton<IToDoItemsV2Service, TodoItemV2Service>();
-builder.Services.Configure<ToDoItemDatabaseSettings>(builder.Configuration.GetSection("ToDoItemDatabase"));
-
-
+//builder.Services.Configure<ToDoItemDatabaseSettings>(builder.Configuration.GetSection("ToDoItemDatabase"));
 builder.Services.Configure<TodoStoreDatabaseSettings>(builder.Configuration.GetSection("ToDoItemDatabase"));
 builder.Services.AddSingleton<ITodoItemsRepository, TodoItemMongoRepository>();
 
